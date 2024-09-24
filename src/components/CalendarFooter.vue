@@ -4,7 +4,10 @@
       <h2>{{ data.lunar }}</h2>
       <h3>{{ data.lunarYear }} {{ data.animalsYear }}</h3>
     </div>
-    <div class="right">{{ data.avoid }}</div>
+    <div class="right">
+      <div>宜: {{ data.suit }}</div>
+      <div>忌: {{ data.avoid }}</div>
+    </div>
   </footer>
 </template>
 
@@ -16,7 +19,13 @@ import { useCalendarStore } from '@/stores/calendar'
 
 const { formatDate } = storeToRefs(useCalendarStore())
 
-const data = ref({})
+const data = ref({
+  lunar: '',
+  lunarYear: '',
+  animalsYear: '',
+  suit: '',
+  avoid: '',
+})
 const updateData = async () => {
   data.value = (await getToDayApi(formatDate.value)).result.data
 }
@@ -31,7 +40,7 @@ onMounted(() => updateData())
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 40px 20px 0;
+  margin: 40px 20px 20px;
   padding: 20px;
   background-color: #f4f5f8;
   border-radius: 16px;

@@ -20,7 +20,6 @@ import CalendarFooter from './components/CalendarFooter.vue'
 }
 .calendar {
   width: 560px;
-  padding-bottom: 20px;
   margin: 16px auto;
   border-width: 1px;
   color: #333;
@@ -30,5 +29,6 @@ import CalendarFooter from './components/CalendarFooter.vue'
   word-break: break-all;
   border-radius: 16px;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.08);
+  overflow: hidden;
 }
 </style>
