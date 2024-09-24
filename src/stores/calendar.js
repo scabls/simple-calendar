@@ -19,6 +19,9 @@ export const useCalendarStore = defineStore('calendar', () => {
     set: value => (selectedDate.value.date = value),
   })
   const list = computed(() => initList(year.value, month.value))
+  const formatDate = computed(() => {
+    return `${year.value}-${month.value}-${date.value}`
+  })
 
   const lastMonth = () => {
     if (year.value === 1900 && month.value === 1) return
@@ -37,7 +40,7 @@ export const useCalendarStore = defineStore('calendar', () => {
     }
   }
   const backToToday = () => (selectedDate.value = getCurrentDate())
-  return { year, month, date, list, lastMonth, nextMonth, backToToday }
+  return { year, month, date, list, formatDate, lastMonth, nextMonth, backToToday }
 })
 
 if (import.meta.hot) {
