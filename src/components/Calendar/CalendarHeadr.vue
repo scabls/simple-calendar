@@ -1,6 +1,6 @@
 <template>
   <header class="calendar-header">
-    <div class="date-select">
+    <aside class="date-select">
       <select v-model="year">
         <option v-for="year in years" :value="year" :key="year">{{ year }}年</option>
       </select>
@@ -9,10 +9,10 @@
         <option v-for="month in months" :value="month" :key="month">{{ month }}月</option>
       </select>
       <span @click="nextMonth">&gt;</span>
-    </div>
-    <div class="today">
+    </aside>
+    <aside class="today">
       <button @click="backToToday">今天</button>
-    </div>
+    </aside>
   </header>
 </template>
 
@@ -62,10 +62,10 @@ onMounted(() => {
       background-color: #fff;
       border: none;
       border-radius: 6px;
-      cursor: pointer;
       &:hover {
         background: rgba(78, 110, 242, 0.1);
         color: #4e6ef2;
+        cursor: pointer;
       }
     }
   }

@@ -14,7 +14,6 @@ import CalendarFooter from './CalendarFooter.vue'
 <style lang="scss" scoped>
 .calendar {
   width: 560px;
-  height: 400px;
   margin: 50px auto;
   border-radius: 16px;
   box-shadow: 0 2px 8px rgba($color: #000000, $alpha: 0.08);

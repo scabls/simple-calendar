@@ -1,4 +1,4 @@
-import { getCurrentDate } from '@/utils'
+import { getCurrentDate, initList } from '@/utils'
 import { ref, computed } from 'vue'
 import { defineStore, acceptHMRUpdate } from 'pinia'
 
@@ -18,6 +18,7 @@ export const useCalendarStore = defineStore('calendar', () => {
     get: () => selectedDate.value.date,
     set: value => (selectedDate.value.date = value),
   })
+  const list = computed(() => initList(year.value, month.value))
 
   const lastMonth = () => {
     if (year.value === 1900 && month.value === 1) return
@@ -36,7 +37,7 @@ export const useCalendarStore = defineStore('calendar', () => {
     }
   }
   const backToToday = () => (selectedDate.value = getCurrentDate())
-  return { year, month, date, lastMonth, nextMonth, backToToday }
+  return { year, month, date, list, lastMonth, nextMonth, backToToday }
 })
 
 if (import.meta.hot) {
